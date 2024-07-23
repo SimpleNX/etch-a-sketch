@@ -3,10 +3,19 @@ body{
     flex-direction: column;
     align-items: center;
     gap : 40px;
-    background-color: rgb(238, 208, 172);
+    background-color: black;
 }
 #container{
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
+}
+
+.grid{
+    color : white;
+    opacity : 1;
+}
+
+.grid:hover{
+    opacity: 0.7;
 }

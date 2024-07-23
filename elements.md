@@ -7,6 +7,8 @@ Completed.
 
 ## Hover effect on Grid Sqaures.
 Divs change colors when the mouse passes over them leaving a pixelated trail.
+Completed
 
 ## Color on divs
 Randomise the color given to sqaures and add a 10% darkening after each interaction.
+Random color assignment done.
