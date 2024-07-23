@@ -2,18 +2,16 @@ let inputBtn = document.querySelector("#input-btn");
 let gridSize = 16;
 const body = document.querySelector("body");
 const width = 960;
-const color = ["blue", "green", "red", "lightgreen", "lightblue", "lightred", "orange", "skyblue", "yellow", "violet"];
+const color = ["blue", "green", "lightpink", "lightgreen", "lightblue", "pink", "orange", "skyblue", "yellow", "violet", "white"];
 
 function getRandomColor(){
     let colorIndex = Math.floor(Math.random()*(color.length-1));
-    if(colorIndex >= color.length)
-        return "white";
     return color[colorIndex];
 }
 
 
 inputBtn.addEventListener("click", ()=>{
-    gridSize = parseInt(prompt("Enter grid size 1-100"));
+    gridSize = parseInt(prompt("Enter grid size : 1-100"));
     formGrid();
 });
 
@@ -34,14 +32,23 @@ function formGrid(){
     const squaresCount = gridSize**2;
     for(let i=0; i<squaresCount; i++){
         const square = document.createElement("div");
-        square.setAttribute("class", "grid");
         square.setAttribute("id", `${i}-sqaure`);
         square.style.boxSizing = "border-box";
         square.style.width = `${squareWidth}px`;
         square.style.height = `${squareWidth}px`;
         square.style.backgroundColor = getRandomColor();
+        square.style.opacity = 1;
         container.appendChild(square);
     }
+    //Hover darkener event.
+    container.addEventListener("mouseover", (event)=>{
+        let opacity = +event.target.style.opacity;
+        if(opacity!=0){
+            event.target.style.backgroundColor = getRandomColor();
+            opacity -= 0.1;
+            event.target.style.opacity = opacity;
+        }
+    });
 }
 
 formGrid();

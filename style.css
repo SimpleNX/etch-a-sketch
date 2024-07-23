@@ -10,12 +10,3 @@ body{
     display: flex;
     flex-wrap: wrap;
 }
-
-.grid{
-    color : white;
-    opacity : 1;
-}
-
-.grid:hover{
-    opacity: 0.7;
-}
