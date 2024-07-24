@@ -1,18 +1,18 @@
-let inputBtn = document.querySelector("#input-btn");
-let gridSize = 16;
+const inputBtn = document.querySelector("#input-btn");
 const body = document.querySelector("body");
 const width = 960;
-const color = ["blue", "green", "lightpink", "lightgreen", "lightblue", "pink", "orange", "skyblue", "yellow", "violet", "white"];
 
 function getRandomColor(){
-    let colorIndex = Math.floor(Math.random()*(color.length-1));
-    return color[colorIndex];
+    let redValue = Math.floor(Math.random()*(255));
+    let greenValue = Math.floor(Math.random()*(255));
+    let blueValue = Math.floor(Math.random()*(255));
+    return `rgb(${redValue}, ${greenValue}, ${blueValue})`;
 }
 
 
 inputBtn.addEventListener("click", ()=>{
-    gridSize = parseInt(prompt("Enter grid size : 1-100"));
-    formGrid();
+    let gridSize = parseInt(prompt("Enter grid size : 1-100"));
+    formGrid(gridSize);
 });
 
 function clearPrev(){
@@ -22,7 +22,7 @@ function clearPrev(){
 }
 
 //Forming a grid of gridSize(gridSize*gridSize)
-function formGrid(){
+function formGrid(gridSize = 16){
     clearPrev();
     const container = document.createElement("div");
     const squareWidth = Math.floor(width/gridSize);
